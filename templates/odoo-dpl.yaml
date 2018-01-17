@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+    tier: frontend
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }} 
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        tier: frontend
+    spec:
+      containers:
+      - image: schabrolles/odoo_ppc64le:icp
+        name: {{ .Release.Name }}
+        env:
+        - name: DB_HOST
+          value: {{ .Values.database.dbhost }}
+        - name: DB_USER
+          value: {{ .Values.database.dbuser }}
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: odoo-db-pass
+              key: password
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-db-pass
+              key: password
+        ports:
+        - containerPort: 8069
+          name: {{ .Release.Name }}
