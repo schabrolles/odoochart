@@ -1,4 +1,4 @@
-# Docker-Odoo
+# Odoo Chart for ICP
 
 This version is build to run on ppc64le compatible Hardware (IBM PowerSystem with Power8 minimum or OpenPower comatible system)
 
