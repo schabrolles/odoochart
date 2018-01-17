@@ -1,3 +1,13 @@
 description: Odoo Application
 name: odoo-app
 version: 0.1.7
+keywords:
+  - odoo
+  - openerp
+home: https://www.odoo.com/
+icon: https://apps.openerp.com/apps/modules/category/Website/browse/page/4?price=Free&order=Best+Sellers
+sources: 
+  - https://github.com/odoo/odoo
+maintainers:
+  - Julien Limodin
+  - Sebastien Chabrolles
