@@ -5,7 +5,7 @@ keywords:
   - odoo
   - openerp
 home: https://www.odoo.com/
-icon: https://apps.openerp.com/apps/modules/category/Website/browse/page/4?price=Free&order=Best+Sellers
+icon: https://apps.openerp.com/apps/icon_image?module_id=24756
 sources: 
   - https://github.com/odoo/odoo
 maintainers:
