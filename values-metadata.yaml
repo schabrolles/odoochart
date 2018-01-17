@@ -1,31 +1,37 @@
-##############################################################################
-## Common image variables
-###############################################################################
-
-## Image configuration metadata
-image:
+## Database access attributes - empty value will be
+## overriden with default
+database:
   __metadata:
-    label: "Docker image configuration"
-  repository:
+    label: "Odoo DB configuration"
+  dbhost:
     __metadata:
-      name: "Repository"
-      label: "Docker Repository"
-      description: "Docker registry to pull image from."
+      name: "dbhost"
+      label: "DB Host"
+      description: "Name of the postgres service."
       type: "string"
       immutable: "false"
       required: true
-  pullPolicy:
+  dbuser:
     __metadata:
-      name: "pullPolicy"
-      label: "Docker image pull policy"
-      description: "Always, Never, or IfNotPresent. Defaults to IfNotPresent"
+      name: "dbuser"
+      label: "Odoo User DB"
+      description: "Name of the postgres user used by Odoo app."
       type: "string"
       immutable: "false"
       required: true
-      options:
-      - label: "IfNotPresent"
-        value: "IfNotPresent"
-      - label: "Always"
-        value: "Always"
-      - label: "Never"
-        value: "Never"
+  dbpassword:
+    __metadata:
+      name: "dbpassword"
+      label: "Odoo User Password"
+      description: "Password of the postgres user used by Odoo app."
+      type: "string"
+      immutable: "false"
+      required: true
+  pgpassword:
+    __metadata:
+      name: "pgpassword"
+      label: "PostgreSQL superuser password"
+      description: "Password of the postgres superuser."
+      type: "string"
+      immutable: "false"
+      required: true
