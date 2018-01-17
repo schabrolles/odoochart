@@ -19,7 +19,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: schabrolles/odoo_ppc64le:icp
+      - image: "{{ .Values.images.repository }}:{{ .Values.images.tag }}"
         name: {{ .Release.Name }}
         env:
         - name: DB_HOST
@@ -29,12 +29,12 @@ spec:
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: odoo-db-pass
+              name: "{{ .Release.Name }}-db-pass"
               key: password
         - name: PGPASSWORD
           valueFrom:
             secretKeyRef:
-              name: postgres-db-pass
+              name: "{{ .Release.Name }}-pg-pass"
               key: password
         ports:
         - containerPort: 8069
