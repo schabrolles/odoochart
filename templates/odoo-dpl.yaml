@@ -19,7 +19,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: "{{ .Values.images.repository }}:{{ .Values.images.tag }}"
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         name: {{ .Release.Name }}
         env:
         - name: DB_HOST
